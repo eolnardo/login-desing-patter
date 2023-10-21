@@ -1,5 +1,6 @@
 package service;
 
+import model.AutenticarSenha;
 import model.Recurso;
 import model.Usuario;
 
@@ -7,10 +8,8 @@ public class AutenticacaoService {
     public String autenticar(Usuario usuario, String senha, Recurso recurso){
         var retorno = "";
 
-        retorno = new AutenticarSenha(usuario, senha)
-                    .ou (new AutenticarUsuario(usuario, recurso))
+        retorno = new AutenticarSenha(usuario, senha).autenticacao();
 
-                    .autenticacao();
         return retorno;
 
         /*if (!usuario.getSenha().equals(senha)){
